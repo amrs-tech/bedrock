@@ -26,24 +26,29 @@
             // Intercept link clicks to open about:protections page using UITour.
             Mozilla.UITour.ping(function() {
                 var protectionReportLinks = document.querySelectorAll('.js-open-about-protections');
+                var pictoCardTitles = document.querySelectorAll('.privacy-products-etp .mzp-c-card-picto-title');
 
                 for (var i = 0; i < protectionReportLinks.length; i++) {
                     // We're opening a special internal page, rather than another web page,
                     // so treat this as more of an action, rather than a page navigation.
                     protectionReportLinks[i].setAttribute('role', 'button');
-
-                    // Make picto cards click and keyboard accessible.
-                    if (protectionReportLinks[i].classList.contains('mzp-c-card-picto')) {
-                        protectionReportLinks[i].setAttribute('tabindex', 0);
-                        protectionReportLinks[i].addEventListener('keydown', function(e) {
-                            if (e.key === 'Enter') {
-                                e.preventDefault();
-                                handleOpenProtectionReport(e);
-                            }
-                        });
-                    }
+                    // Hide the fallback SUMO linke.
+                    protectionReportLinks[i].href = '#';
 
                     protectionReportLinks[i].addEventListener('click', handleOpenProtectionReport, false);
+                }
+
+                for (var j = 0; j < pictoCardTitles.length; j++) {
+                    // Make picto card titles click and keyboard accessible.
+                    pictoCardTitles[j].setAttribute('role', 'button');
+                    pictoCardTitles[j].setAttribute('tabindex', 0);
+                    pictoCardTitles[j].addEventListener('click', handleOpenProtectionReport, false);
+                    pictoCardTitles[j].addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter') {
+                            e.preventDefault();
+                            handleOpenProtectionReport(e);
+                        }
+                    });
                 }
             });
         } else {

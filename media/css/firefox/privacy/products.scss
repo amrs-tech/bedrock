@@ -13,11 +13,6 @@ $image-path: '/media/protocol/img';
     max-width: $content-xl;
 }
 
-// Underline active link in sub navigation.
-.privacy-products .c-sub-navigation-item.privacy-products > a {
-    text-decoration: underline;
-}
-
 /* -------------------------------------------------------------------------- */
 // Top Page Call Out
 
@@ -98,7 +93,7 @@ $image-path: '/media/protocol/img';
 .privacy-products-etp {
     background-color: $color-off-black;
 
-    &> .mzp-l-content {
+    & > .mzp-l-content {
         padding-top: 0;
     }
 
@@ -216,11 +211,11 @@ $image-path: '/media/protocol/img';
 }
 
 .privacy-products-lockwise .mzp-c-card-feature-title {
-    @include at2x('/media/protocol/img/logos/firefox/lockwise/logo-word-hor-md.png', auto, 40px);
+    @include at2x('/media/protocol/img/logos/firefox/lockwise/logo-word-hor-sm.png', auto, 40px);
 }
 
 .privacy-products-send .mzp-c-card-feature-title {
-    @include at2x('/media/protocol/img/logos/firefox/send/logo-word-hor-md.png', auto, 40px);
+    @include at2x('/media/protocol/img/logos/firefox/send/logo-word-hor-sm.png', auto, 40px);
 }
 
 .privacy-products-pocket .mzp-c-card-feature-title {
@@ -258,8 +253,14 @@ $image-path: '/media/protocol/img';
         display: none;
     }
 
-    .privacy-products-etp .mzp-c-card-picto {
-        cursor: pointer;
+    .privacy-products-etp .mzp-c-card-picto-title {
+
+        &:hover,
+        &:active,
+        &:focus {
+            cursor: pointer;
+            text-decoration: underline;
+        }
     }
 }
 

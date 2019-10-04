@@ -22,6 +22,12 @@
 {% set _entrypoint = 'mozilla.org-privacy-products' %}
 {% set _utm_campaign = 'privacy-products' %}
 
+{% block sub_nav %}
+  {% with active='products' %}
+    {% include 'firefox/privacy/includes/subnav.html' %}
+  {% endwith %}
+{% endblock %}
+
 {% block hub_content %}
 
   {{ call_out(
@@ -75,9 +81,9 @@
 
   <div class="privacy-products-etp">
     <ul class="mzp-l-content mzp-l-card-third mzp-t-dark">
-      {{ picto_card(title=_('Invisible to the top trackers'), desc=_('Meet four of the most common categories of trackers — who won’t meet you.'), class='invisible js-open-about-protections') }}
-      {{ picto_card(title=_('Always in your control'), desc=_('Want to customize what gets blocked? Your settings are only one click away.'), class='control js-open-about-protections') }}
-      {{ picto_card(title=_('Protection beyond tracking'), desc=_('If you have a Firefox account, you can also see how we’re helping you protect your personal info and passwords.'), class='protection js-open-about-protections') }}
+      {{ picto_card(title=_('Invisible to the top trackers'), desc=_('Meet four of the most common categories of trackers — who won’t meet you.'), class='invisible', heading_level=3) }}
+      {{ picto_card(title=_('Always in your control'), desc=_('Want to customize what gets blocked? Your settings are only one click away.'), class='control', heading_level=3) }}
+      {{ picto_card(title=_('Protection beyond tracking'), desc=_('If you have a Firefox account, you can also see how we’re helping you protect your personal info and passwords.'), class='protection', heading_level=3) }}
     </ul>
   </div>
 
@@ -144,7 +150,7 @@
         media_after=True
       ) %}
         <p>{{ _('Pocket recommends high-quality, human-curated articles without collecting your browsing history or sharing your personal information with advertisers.') }}</p>
-        <p><a class="mzp-c-cta-link" href="https://app.getpocket.com/?utm_source={{ _entrypoint }}&utm_medium=referral&utm_campaign={{ _utm_campaign }}&entrypoint={{ _entrypoint }}" data-cta-type="pocket" data-cta-position="secondary">{{ _('Get Pocket') }}</a></p>
+        <p><a class="mzp-c-cta-link" href="https://getpocket.com/firefox_learnmore/?utm_source={{ _entrypoint }}&utm_medium=referral&utm_campaign={{ _utm_campaign }}&entrypoint={{ _entrypoint }}" data-cta-type="pocket" data-cta-position="secondary">{{ _('Get Pocket') }}</a></p>
       {% endcall %}
 
       <section class="privacy-products-accounts mzp-c-card-feature mzp-l-card-feature-left-half">

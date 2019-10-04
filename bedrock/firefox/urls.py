@@ -131,7 +131,7 @@ urlpatterns = (
     page('firefox/best-browser', 'firefox/best-browser.html'),
 
     # Issue 7765
-    page('firefox/privacy', 'firefox/privacy/promise.html'),
+    page('firefox/privacy', 'firefox/privacy/index.html'),
 
     # Issue 7709
     page('firefox/privacy/products', 'firefox/privacy/products.html'),
