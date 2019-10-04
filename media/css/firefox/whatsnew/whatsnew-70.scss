@@ -170,13 +170,25 @@ $image-path: '/media/protocol/img';
 //* -------------------------------------------------------------------------- */
 // Conditional Content
 
-.show-firefox-desktop-70, .show-firefox-desktop-old {
+.show-firefox-desktop-70 {
+    display: none;
+
+    &.mzp-c-button {
+        display: none;
+    }
+}
+
+.show-firefox-desktop-old {
     display: none;
 }
 
 .state-firefox-desktop-70 {
     .show-firefox-desktop-70 {
         display: inline;
+
+        &.mzp-c-button {
+            display: inline-block;
+        }
     }
 
     .show-default, .show-firefox-desktop-old {
@@ -187,6 +199,10 @@ $image-path: '/media/protocol/img';
 .state-firefox-desktop-old {
     .show-firefox-desktop-old {
         display: inline;
+
+        &.mzp-c-button {
+            display: inline-block;
+        }
     }
 
     .show-default, .show-firefox-desktop-70 {
